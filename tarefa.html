@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "pt-br" ng-app="a">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>
+		Tarefa
+	</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js" type="text/javascript"></script>
+
+	<script>
+		
+		var app = angular.module("a",[]);
+		
+		app.controller(
+			"tudo",
+			function($scope){
+				$scope.nome;
+				$scope.email;
+				$scope.telefone;
+				$scope.dados = [];
+				$scope.add = function(){
+					$scope.dados.push($scope.nome + ", " + $scope.email + "," + $scope.telefone)
+				};
+			}
+		);
+
+	</script>
+
+</head>
+<body>
+
+	<div ng-controller="tudo">
+		
+		<label>Nome: </label>
+		<input ng-model="nome"></input><br>
+
+		<label>E-mail: </label>
+		<input ng-model="email"></input><br>
+
+		<label>Telefone: </label>
+		<input ng-model="telefone"></input><br>
+
+		<br><button ng-click="add()">OK</button>
+
+		<ul><li ng-repeat="dado in dados">{{dado}}</li></ul>
+
+	</div>
+
+</body>
+</html>
